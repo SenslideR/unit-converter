@@ -56,8 +56,8 @@ export default function App() {
         return;
       }
 
-      // ? для показа горячих клавиш
-      if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+      // H для показа горячих клавиш
+      if (e.key === 'h' || e.key === 'H') {
         setShowShortcuts(prev => !prev);
       }
     };
@@ -84,9 +84,15 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <p>
-          Нажмите <kbd>?</kbd> для просмотра горячих клавиш
-        </p>
+        <button className="help-btn" onClick={() => setShowShortcuts(true)} title="Горячие клавиши (H)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <span>Горячие клавиши</span>
+          <kbd>H</kbd>
+        </button>
       </footer>
 
       {showShortcuts && (
@@ -107,7 +113,7 @@ export default function App() {
               </div>
               <div className="shortcut-group">
                 <h4>Общие</h4>
-                <div className="shortcut"><kbd>?</kbd> <span>Показать/скрыть подсказки</span></div>
+                <div className="shortcut"><kbd>H</kbd> <span>Показать/скрыть подсказки</span></div>
               </div>
             </div>
           </div>

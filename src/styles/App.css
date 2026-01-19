@@ -90,6 +90,39 @@
   font-size: 0.875rem;
 }
 
+.help-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.help-btn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+}
+
+.help-btn svg {
+  flex-shrink: 0;
+}
+
+.help-btn kbd {
+  padding: 0.15rem 0.4rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+}
+
 .app-footer kbd {
   display: inline-block;
   padding: 0.2rem 0.5rem;
