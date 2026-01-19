@@ -1,0 +1,202 @@
+.converter {
+  background: var(--bg-secondary);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.converter-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.unit-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.unit-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.unit-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: calc(var(--radius) - 4px);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
+}
+
+.unit-select:hover {
+  border-color: var(--accent-primary);
+}
+
+.unit-select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.converter-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: calc(var(--radius) - 4px);
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.converter-input:hover {
+  border-color: var(--accent-primary);
+}
+
+.converter-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.converter-input::placeholder {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.converter-input.result {
+  background: var(--bg-tertiary);
+  color: var(--success);
+  cursor: default;
+}
+
+.converter-input.result:focus {
+  box-shadow: none;
+}
+
+.result-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.result-wrapper .converter-input {
+  padding-right: 3rem;
+}
+
+.copy-btn {
+  position: absolute;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.copy-btn.copied {
+  color: var(--success);
+}
+
+.swap-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--accent-primary);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-bottom: 0.5rem;
+}
+
+.swap-btn:hover {
+  background: var(--accent-secondary);
+  transform: rotate(180deg);
+}
+
+.swap-btn:active {
+  transform: rotate(180deg) scale(0.95);
+}
+
+.conversion-formula {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border-radius: calc(var(--radius) - 4px);
+  text-align: center;
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--accent-primary);
+}
+
+@media (max-width: 600px) {
+  .converter {
+    padding: 1.25rem;
+  }
+
+  .converter-row {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .input-group {
+    width: 100%;
+  }
+
+  .swap-btn {
+    align-self: center;
+    transform: rotate(90deg);
+    margin-bottom: 0;
+  }
+
+  .swap-btn:hover {
+    transform: rotate(270deg);
+  }
+
+  .converter-input {
+    font-size: 1.125rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .conversion-formula {
+    font-size: 1rem;
+    padding: 0.875rem;
+  }
+}

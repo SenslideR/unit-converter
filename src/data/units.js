@@ -1,0 +1,108 @@
+export const categories = {
+  length: {
+    name: 'Длина',
+    icon: '📏',
+    baseUnit: 'm',
+    units: {
+      mm: { name: 'Миллиметры', symbol: 'мм', toBase: 0.001 },
+      cm: { name: 'Сантиметры', symbol: 'см', toBase: 0.01 },
+      m: { name: 'Метры', symbol: 'м', toBase: 1 },
+      km: { name: 'Километры', symbol: 'км', toBase: 1000 },
+      inch: { name: 'Дюймы', symbol: 'дюйм', toBase: 0.0254 },
+      ft: { name: 'Футы', symbol: 'фут', toBase: 0.3048 },
+      yd: { name: 'Ярды', symbol: 'ярд', toBase: 0.9144 },
+      mi: { name: 'Мили', symbol: 'миля', toBase: 1609.344 },
+    },
+  },
+  weight: {
+    name: 'Вес',
+    icon: '⚖️',
+    baseUnit: 'kg',
+    units: {
+      mg: { name: 'Миллиграммы', symbol: 'мг', toBase: 0.000001 },
+      g: { name: 'Граммы', symbol: 'г', toBase: 0.001 },
+      kg: { name: 'Килограммы', symbol: 'кг', toBase: 1 },
+      t: { name: 'Тонны', symbol: 'т', toBase: 1000 },
+      oz: { name: 'Унции', symbol: 'унц', toBase: 0.0283495 },
+      lb: { name: 'Фунты', symbol: 'фунт', toBase: 0.453592 },
+    },
+  },
+  temperature: {
+    name: 'Температура',
+    icon: '🌡️',
+    baseUnit: 'c',
+    units: {
+      c: { name: 'Цельсий', symbol: '°C', isSpecial: true },
+      f: { name: 'Фаренгейт', symbol: '°F', isSpecial: true },
+      k: { name: 'Кельвин', symbol: 'K', isSpecial: true },
+    },
+  },
+  area: {
+    name: 'Площадь',
+    icon: '📐',
+    baseUnit: 'm2',
+    units: {
+      m2: { name: 'Кв. метры', symbol: 'м²', toBase: 1 },
+      km2: { name: 'Кв. километры', symbol: 'км²', toBase: 1000000 },
+      ft2: { name: 'Кв. футы', symbol: 'фут²', toBase: 0.092903 },
+      acre: { name: 'Акры', symbol: 'акр', toBase: 4046.86 },
+      ha: { name: 'Гектары', symbol: 'га', toBase: 10000 },
+    },
+  },
+  volume: {
+    name: 'Объём',
+    icon: '🧊',
+    baseUnit: 'l',
+    units: {
+      ml: { name: 'Миллилитры', symbol: 'мл', toBase: 0.001 },
+      l: { name: 'Литры', symbol: 'л', toBase: 1 },
+      m3: { name: 'Куб. метры', symbol: 'м³', toBase: 1000 },
+      gal: { name: 'Галлоны (США)', symbol: 'гал', toBase: 3.78541 },
+      pt: { name: 'Пинты (США)', symbol: 'пинта', toBase: 0.473176 },
+    },
+  },
+  time: {
+    name: 'Время',
+    icon: '⏱️',
+    baseUnit: 's',
+    units: {
+      ms: { name: 'Миллисекунды', symbol: 'мс', toBase: 0.001 },
+      s: { name: 'Секунды', symbol: 'с', toBase: 1 },
+      min: { name: 'Минуты', symbol: 'мин', toBase: 60 },
+      h: { name: 'Часы', symbol: 'ч', toBase: 3600 },
+      d: { name: 'Дни', symbol: 'дн', toBase: 86400 },
+      week: { name: 'Недели', symbol: 'нед', toBase: 604800 },
+      month: { name: 'Месяцы', symbol: 'мес', toBase: 2629746 },
+      year: { name: 'Годы', symbol: 'год', toBase: 31556952 },
+    },
+  },
+  speed: {
+    name: 'Скорость',
+    icon: '🚀',
+    baseUnit: 'ms',
+    units: {
+      ms: { name: 'Метры в секунду', symbol: 'м/с', toBase: 1 },
+      kmh: { name: 'Километры в час', symbol: 'км/ч', toBase: 0.277778 },
+      mph: { name: 'Мили в час', symbol: 'миль/ч', toBase: 0.44704 },
+      kn: { name: 'Узлы', symbol: 'уз', toBase: 0.514444 },
+      fts: { name: 'Футы в секунду', symbol: 'фут/с', toBase: 0.3048 },
+    },
+  },
+  data: {
+    name: 'Данные',
+    icon: '💾',
+    baseUnit: 'b',
+    units: {
+      b: { name: 'Байты', symbol: 'Б', toBase: 1 },
+      kb: { name: 'Килобайты', symbol: 'КБ', toBase: 1024 },
+      mb: { name: 'Мегабайты', symbol: 'МБ', toBase: 1048576 },
+      gb: { name: 'Гигабайты', symbol: 'ГБ', toBase: 1073741824 },
+      tb: { name: 'Терабайты', symbol: 'ТБ', toBase: 1099511627776 },
+      bit: { name: 'Биты', symbol: 'бит', toBase: 0.125 },
+      kbit: { name: 'Килобиты', symbol: 'Кбит', toBase: 128 },
+      mbit: { name: 'Мегабиты', symbol: 'Мбит', toBase: 131072 },
+    },
+  },
+};
+
+export const categoryList = Object.keys(categories);
