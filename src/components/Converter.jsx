@@ -82,6 +82,10 @@ export default function Converter({ category, onConvert }) {
     if (e.key === 'Enter') {
       saveToHistory();
     }
+    if (e.key === 'Escape') {
+      setInputValue('');
+      setResult('');
+    }
   };
 
   return (

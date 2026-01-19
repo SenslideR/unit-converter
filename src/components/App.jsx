@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import CategorySelector from './CategorySelector';
 import Converter from './Converter';
 import History from './History';
+import { categoryList } from '../data/units';
 import '../styles/App.css';
 
 const HISTORY_KEY = 'unit-converter-history';
@@ -9,6 +10,7 @@ const MAX_HISTORY = 20;
 
 export default function App() {
   const [category, setCategory] = useState('length');
+  const [showShortcuts, setShowShortcuts] = useState(false);
   const [history, setHistory] = useState(() => {
     const saved = localStorage.getItem(HISTORY_KEY);
     return saved ? JSON.parse(saved) : [];
@@ -39,6 +41,31 @@ export default function App() {
     setCategory(item.category);
   };
 
+  // Горячие клавиши для переключения категорий (1-8)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Игнорируем если фокус в input
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') {
+        return;
+      }
+
+      // Цифры 1-8 для категорий
+      const num = parseInt(e.key);
+      if (num >= 1 && num <= categoryList.length) {
+        setCategory(categoryList[num - 1]);
+        return;
+      }
+
+      // ? для показа горячих клавиш
+      if (e.key === '?' || (e.key === '/' && e.shiftKey)) {
+        setShowShortcuts(prev => !prev);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className="app">
       <header className="app-header">
@@ -57,8 +84,35 @@ export default function App() {
       </main>
 
       <footer className="app-footer">
-        <p>Выберите категорию и введите значение для конвертации</p>
+        <p>
+          Нажмите <kbd>?</kbd> для просмотра горячих клавиш
+        </p>
       </footer>
+
+      {showShortcuts && (
+        <div className="shortcuts-overlay" onClick={() => setShowShortcuts(false)}>
+          <div className="shortcuts-modal" onClick={e => e.stopPropagation()}>
+            <h3>Горячие клавиши</h3>
+            <button className="shortcuts-close" onClick={() => setShowShortcuts(false)}>×</button>
+            <div className="shortcuts-list">
+              <div className="shortcut-group">
+                <h4>Категории</h4>
+                <div className="shortcut"><kbd>1</kbd>-<kbd>8</kbd> <span>Переключить категорию</span></div>
+              </div>
+              <div className="shortcut-group">
+                <h4>Конвертер</h4>
+                <div className="shortcut"><kbd>Tab</kbd> <span>Следующее поле</span></div>
+                <div className="shortcut"><kbd>Enter</kbd> <span>Сохранить в историю</span></div>
+                <div className="shortcut"><kbd>Esc</kbd> <span>Очистить ввод</span></div>
+              </div>
+              <div className="shortcut-group">
+                <h4>Общие</h4>
+                <div className="shortcut"><kbd>?</kbd> <span>Показать/скрыть подсказки</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
