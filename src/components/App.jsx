@@ -93,6 +93,7 @@ export default function App() {
           <span>Горячие клавиши</span>
           <kbd>H</kbd>
         </button>
+        <span className="app-version">v1.0.0</span>
       </footer>
 
       {showShortcuts && (

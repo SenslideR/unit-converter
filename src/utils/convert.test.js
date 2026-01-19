@@ -127,6 +127,72 @@ describe('convert', () => {
     });
   });
 
+  describe('area conversions', () => {
+    it('should convert square meters to square kilometers', () => {
+      const result = convert(1000000, 'm2', 'km2', 'area');
+      expect(result).toBe(1);
+    });
+
+    it('should convert hectares to square meters', () => {
+      const result = convert(1, 'ha', 'm2', 'area');
+      expect(result).toBe(10000);
+    });
+
+    it('should convert acres to hectares', () => {
+      const result = convert(1, 'acre', 'ha', 'area');
+      expect(result).toBeCloseTo(0.404686, 5);
+    });
+
+    it('should convert square feet to square meters', () => {
+      const result = convert(1, 'ft2', 'm2', 'area');
+      expect(result).toBeCloseTo(0.092903, 5);
+    });
+  });
+
+  describe('volume conversions', () => {
+    it('should convert liters to milliliters', () => {
+      const result = convert(1, 'l', 'ml', 'volume');
+      expect(result).toBe(1000);
+    });
+
+    it('should convert cubic meters to liters', () => {
+      const result = convert(1, 'm3', 'l', 'volume');
+      expect(result).toBe(1000);
+    });
+
+    it('should convert gallons to liters', () => {
+      const result = convert(1, 'gal', 'l', 'volume');
+      expect(result).toBeCloseTo(3.78541, 4);
+    });
+
+    it('should convert pints to milliliters', () => {
+      const result = convert(1, 'pt', 'ml', 'volume');
+      expect(result).toBeCloseTo(473.176, 2);
+    });
+  });
+
+  describe('speed conversions', () => {
+    it('should convert km/h to m/s', () => {
+      const result = convert(3.6, 'kmh', 'ms', 'speed');
+      expect(result).toBeCloseTo(1, 4);
+    });
+
+    it('should convert mph to km/h', () => {
+      const result = convert(1, 'mph', 'kmh', 'speed');
+      expect(result).toBeCloseTo(1.60934, 4);
+    });
+
+    it('should convert knots to km/h', () => {
+      const result = convert(1, 'kn', 'kmh', 'speed');
+      expect(result).toBeCloseTo(1.852, 3);
+    });
+
+    it('should convert feet per second to meters per second', () => {
+      const result = convert(1, 'fts', 'ms', 'speed');
+      expect(result).toBeCloseTo(0.3048, 4);
+    });
+  });
+
   describe('edge cases', () => {
     it('should return empty string for empty value', () => {
       const result = convert('', 'm', 'km', 'length');

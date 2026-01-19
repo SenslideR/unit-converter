@@ -83,11 +83,21 @@
   text-align: center;
   padding-top: 2rem;
   margin-top: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .app-footer p {
   color: var(--text-secondary);
   font-size: 0.875rem;
+}
+
+.app-version {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  opacity: 0.6;
 }
 
 .help-btn {
